@@ -19,24 +19,9 @@ if (isset($_GET['id_siswa'])) {
     </script>";
   }
 }
-$sqlx = "SELECT siswa.*, angkatan.*, jurusan.*, kelas.* FROM siswa, angkatan, jurusan, kelas WHERE siswa.id_angkatan = angkatan.nama_angkatan AND siswa.id_jurusan = jurusan.id_jurusan AND siswa.id_kelas = kelas.id_kelas";
-$q = mysqli_query($conn, $sqlx);
-while ($hasil = mysqli_fetch_array($q)) {
-  //UPDATE `siswatemp` SET `kls11` = '1' WHERE `siswatemp`.`nisn` = '20220728092600';;
-
-  $updates = "UPDATE `siswatemp` SET kls$hasil[kelas]='$hasil[nama_kelas]' WHERE `siswatemp`.`nisn` = '$hasil[nisn]'";
-  //echo $updates;
-  $qupd = mysqli_query($conn, $updates);
-  //if($qupd) echo "berhasil";
-  //else echo "gagal";
-}
-
 ?>
 
-<!-- button triger -->
-<!-- button triger -->
 
-<!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
     <h5 class="m-0 font-weight-bold text-primary">Data Siswa

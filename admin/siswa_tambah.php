@@ -91,14 +91,31 @@ if (isset($_POST['simpan'])) {
 ?>
 
 <form action="" method="POST">
-        <input type="text" required name="nama" placeholder="Nama Siswa" class="form-control mb-2">
-        <input type="text" name="ttl" placeholder="Tempat Tanggal Lahir contoh: Bandung, 11-11-2011" required class="form-control mb-2">
-        <select class="form-control mb-2" name="jenis_kelamin">
+  <div class="col-md-12 mb-4">
+    <div class="card shadow">
+      <div class="card-header">
+        <strong class="card-title"><h3>Edit Data Siswa</h3></strong>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <label for="custom-multiselect">Nama Lengkap</label>
+          <input type="text" required name="nama" placeholder="Nama Siswa" class="form-control mb-2">
+        </div>
+        <div class="form-group">
+          <label for="custom-multiselect">Tempat Tanggal Lahir</label>
+          <input type="text" name="ttl" placeholder="Tempat Tanggal Lahir contoh: Bandung, 11-11-2011" required class="form-control mb-2">
+        </div>
+        <div class="form-group mb-3">
+          <label for="custom-multiselect">Jenis Kelamin</label>
+          <select class="custom-select" name="jenis_kelamin">
             <option selected="">Pilih Jenis Kelamin</option>
             <option value="laki-laki">Laki-Laki</option>
             <option value="perempuan">Perempuan</option>
-        </select>
-        <select class="form-control mb-2" name="id_angkatan">
+          </select>
+        </div>
+        <div class="form-group mb-3">
+          <label for="custom-multiselect">Angkatan</label>
+          <select class="form-control mb-2" name="id_angkatan">
             <option selected="">Pilih Angkatan</option>
             <?php
             $exec = mysqli_query($conn, "SELECT * FROM angkatan order by id_angkatan");
@@ -106,31 +123,43 @@ if (isset($_POST['simpan'])) {
                 echo "<option value = " . $angkatan['nama_angkatan'] . ">" . $angkatan['nama_angkatan'] . "</option>";
             endwhile;
             ?>
-        </select>
-            <select class="form-control mb-2" name="id_jurusan">
-            <option selected="">Pilih Jurusan</option>
-            <?php
-            $exec = mysqli_query($conn, "SELECT * FROM jurusan order by id_jurusan");
-            while ($angkatan = mysqli_fetch_assoc($exec)) :
-                echo "<option value = " . $angkatan['id_jurusan'] . ">" . $angkatan['nama_jurusan'] . "</option>";
-            endwhile;
-            ?>
-        </select>
-        <select class="form-control mb-2" name="id_kelas">
-            <option selected="">Pilih Kelas</option>
-            <?php
-            $exec = mysqli_query($conn, "SELECT * FROM kelas order by id_kelas");
-            while ($angkatan = mysqli_fetch_assoc($exec)) :
-                echo "<option value = " . $angkatan['id_kelas'] . ">" . $angkatan['nama_kelas'] . "</option>";
-            endwhile;
-            ?>
-        </select>
-        <textarea class="form-control mb-2" required name="alamat" placeholder="Alamat Siswa"></textarea>
-
+          </select>
+        <div>
+        <div class="form-group mb-3">
+          <label for="custom-multiselect">Jurusan</label>
+          <select class="form-control mb-2" name="id_jurusan">
+              <option selected="">Pilih Jurusan</option>
+              <?php
+              $exec = mysqli_query($conn, "SELECT * FROM jurusan order by id_jurusan");
+              while ($angkatan = mysqli_fetch_assoc($exec)) :
+                  echo "<option value = " . $angkatan['id_jurusan'] . ">" . $angkatan['nama_jurusan'] . "</option>";
+              endwhile;
+              ?>
+          </select>
+        </div>
+        <div class="form-group mb-3">
+          <label for="custom-multiselect">Kelas</label>
+          <select class="form-control mb-2" name="id_kelas">
+              <option selected="">Pilih Kelas</option>
+              <?php
+              $exec = mysqli_query($conn, "SELECT * FROM kelas order by id_kelas");
+              while ($angkatan = mysqli_fetch_assoc($exec)) :
+                  echo "<option value = " . $angkatan['id_kelas'] . ">" . $angkatan['nama_kelas'] . "</option>";
+              endwhile;
+              ?>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="custom-multiselect">Alamat</label>
+          <input type="text" class="form-control mb-2" required name="alamat" placeholder="Alamat Siswa"></input>
+        </div>
         <button type="submit" name="simpan" class="btn btn-primary" style="float:right;">Simpan</button>
-
+      </div>
+    </div>
+  </div>
 </form>
 
 <?php
 include '../template/footer.php';
 ?>
+
