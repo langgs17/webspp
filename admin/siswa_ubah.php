@@ -30,33 +30,6 @@ if (isset($_POST['edit'])) {
 }
 ?>
 
-<form action="" method="post">
-    <!-- Hidden field untuk menyimpan id_siswa dan nisn -->
-    <input type="hidden" name="id_siswa" value="<?=$res['id_siswa']?>">
-    <input type="hidden" name="nisn" value="<?= $res['nisn'] ?>">
-    <input type="hidden" name="id_kelas" value="<?= $res['id_kelas'] ?>">
-
-
-
-    <!-- Input untuk menampilkan nisn -->
-    <input type="text" class="form-control mb-2" readonly value="<?= $res['nisn'] ?>" disabled>
-    <input type="text" class="form-control mb-2" readonly value="<?= $res['id_angkatan'] ?>" disabled>
-    <input type="text" class="form-control mb-2" readonly value="<?= $res['nama_kelas'] ?>" disabled>
-    <input type="text" class="form-control mb-2" readonly value="<?= $res['nama_jurusan'] ?>" disabled>
-    <input type="text" class="form-control mb-2" required name="nama" value="<?= $res['nama'] ?>">
-    <input type="text" class="form-control mb-2" required name="ttl" value="<?= $res['ttl'] ?>">
-    <SELECT class="form-control mb-2" name="jenis_kelamin">
-      <option selected=""><?= empty($res['jenis_kelamin']) ? 'Jenis Kelamin' : $res['jenis_kelamin']; ?></option>
-      <option value="laki-laki">Laki-Laki</option>
-      <option value="perempuan">Perempuan</option>
-    </SELECT>
-    <textarea class="form-control mb-2" required name="alamat" placeholder="Alamat Siswa"><?= $res['alamat'] ?></textarea>
-
-    <button type="submit" name="edit" class="btn btn-primary" style="float:right;">Simpan</button>
-
-</form>
-
-
 <form action="" method="POST">
   <div class="col-md-12 mb-4">
     <div class="card shadow">
@@ -103,7 +76,7 @@ if (isset($_POST['edit'])) {
           <label for="custom-multiselect">Alamat</label>
           <input type="text" class="form-control mb-2" required name="alamat" value="<?= $res['alamat'] ?>">
         </div>
-        <button type="submit" name="simpan" class="btn btn-primary" style="float:right;">Simpan</button>
+        <button type="submit" name="edit" class="btn btn-primary" style="float:right;">Edit</button>
       </div>
     </div>
   </div>
