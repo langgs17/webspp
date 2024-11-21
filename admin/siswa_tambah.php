@@ -94,7 +94,7 @@ if (isset($_POST['simpan'])) {
   <div class="col-md-12 mb-4">
     <div class="card shadow">
       <div class="card-header">
-        <strong class="card-title"><h3>Edit Data Siswa</h3></strong>
+        <strong class="card-title"><h3>Tambah Data Siswa</h3></strong>
       </div>
       <div class="card-body">
         <div class="form-group">

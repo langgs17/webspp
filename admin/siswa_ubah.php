@@ -56,6 +56,59 @@ if (isset($_POST['edit'])) {
 
 </form>
 
+
+<form action="" method="POST">
+  <div class="col-md-12 mb-4">
+    <div class="card shadow">
+      <div class="card-header">
+        <strong class="card-title"><h3>Tambah Data Siswa</h3></strong>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <label for="custom-multiselect">NISN</label>
+          <input type="text" class="form-control mb-2" readonly value="<?= $res['nisn'] ?>" disabled>
+          <input type="hidden" name="id_siswa" value="<?=$res['id_siswa']?>">
+          <input type="hidden" name="nisn" value="<?= $res['nisn'] ?>">
+          <input type="hidden" name="id_kelas" value="<?= $res['id_kelas'] ?>">
+        </div>
+        <div class="form-group">
+          <label for="custom-multiselect">Angkatan</label>
+          <input type="text" class="form-control mb-2" readonly value="<?= $res['id_angkatan'] ?>" disabled>
+        </div>
+        <div class="form-group mb-3">
+          <label for="custom-multiselect">Kelas</label>
+          <input type="text" class="form-control mb-2" readonly value="<?= $res['nama_kelas'] ?>" disabled>
+        </div>
+        <div class="form-group mb-3">
+          <label for="custom-multiselect">Jurusan</label>
+          <input type="text" class="form-control mb-2" readonly value="<?= $res['nama_jurusan'] ?>" disabled>
+        <div>
+        <div class="form-group mb-3">
+          <label for="custom-multiselect">Nama</label>
+          <input type="text" class="form-control mb-2" required name="nama" value="<?= $res['nama'] ?>">
+        </div>
+        <div class="form-group mb-3">
+          <label for="custom-multiselect">Tempat Tanggal Lahir</label>
+          <input type="text" class="form-control mb-2" required name="ttl" value="<?= $res['ttl'] ?>">
+        </div>
+        <div class="form-group">
+          <label for="custom-multiselect">Alamat</label>
+          <SELECT class="form-control mb-2" name="jenis_kelamin">
+            <option selected=""><?= empty($res['jenis_kelamin']) ? 'Jenis Kelamin' : $res['jenis_kelamin']; ?></option>
+            <option value="laki-laki">Laki-Laki</option>
+            <option value="perempuan">Perempuan</option>
+          </SELECT>        
+        </div>
+        <div class="form-group mb-3">
+          <label for="custom-multiselect">Alamat</label>
+          <input type="text" class="form-control mb-2" required name="alamat" value="<?= $res['alamat'] ?>">
+        </div>
+        <button type="submit" name="simpan" class="btn btn-primary" style="float:right;">Simpan</button>
+      </div>
+    </div>
+  </div>
+</form>
+
 <?php
     include '../template/footer.php';
 ?>
